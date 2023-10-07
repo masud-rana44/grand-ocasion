@@ -1,5 +1,6 @@
 import { Logo } from "./Logo";
 import { NavLink } from "react-router-dom";
+import { User } from "./User";
 
 export const Navbar = () => {
   return (
@@ -19,6 +20,7 @@ export const Navbar = () => {
         <li>
           <NavLink to="/register">Register</NavLink>
         </li>
+        <User />
       </ul>
     </nav>
   );
