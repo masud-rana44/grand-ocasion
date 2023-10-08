@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 
 export const Footer = () => {
   return (
-    <footer className="bg-[#101010] shadow  mt-20">
+    <footer className="bg-[#101010] shadow ">
       <div className="w-full container mx-auto p-4 md:py-8">
         <div className="sm:flex sm:items-center sm:justify-between ">
           <a href="#" className="flex items-center mb-4 sm:mb-0">
-            <img src="./logo.svg" className="h-8 mr-3" alt="Flowbite Logo" />
+            <img src="../logo.svg" className="h-8 mr-3" alt="Logo" />
           </a>
           <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
             <li>

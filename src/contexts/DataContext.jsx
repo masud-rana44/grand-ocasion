@@ -12,7 +12,7 @@ const DataProvider = ({ children }) => {
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
-      const response = await fetch("./data.json");
+      const response = await fetch("../data.json");
       const data = await response.json();
       setData(data);
       setIsLoading(false);

@@ -4,17 +4,22 @@ import { useState } from "react";
 import { Input } from "./Input";
 import { Button } from "./Button";
 import { Separator } from "./Separator";
-// import { ImageUpload } from "./ImageUpload";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 const emailVerification = /\S+@\S+\.\S+/;
+const passwordRegex = /^(?=.*[A-Z])(?=.*[\W_]).{6,}$/;
 
 function RegistrationForm() {
   const navigate = useNavigate();
-  const { registerWithEmail, profileUpdate, isLoading, setIsLoading } =
-    useAuth();
+  const {
+    registerWithEmail,
+    signInWithGoogle,
+    profileUpdate,
+    isLoading,
+    setIsLoading,
+  } = useAuth();
 
   const [form, setForm] = useState({
     name: "",
@@ -33,7 +38,7 @@ function RegistrationForm() {
 
     const { name, email, password, confirmPassword, imageUrl } = form;
 
-    if (!name || !email || !password || !confirmPassword) {
+    if (!name || !imageUrl || !email || !password || !confirmPassword) {
       return toast.error("Missing required fields.");
     }
 
@@ -41,9 +46,37 @@ function RegistrationForm() {
       return toast.error("Please enter a valid email");
     }
 
+    if (!passwordRegex.test(password)) {
+      if (password.length < 6) {
+        return toast.error("Password must be at least 6 characters long.");
+      } else if (!/[A-Z]/.test(password)) {
+        return toast.error("Password must contain at least one capital letter");
+      } else if (!/[\W_]/.test(password)) {
+        return toast.error(
+          "Password must contain at least one special character"
+        );
+      }
+    }
+
+    if (password !== confirmPassword) {
+      return toast.error("Password and confirm password don't match");
+    }
+
     try {
       await registerWithEmail(email, password);
       await profileUpdate(name, imageUrl);
+      toast.success("Account created successfully");
+      navigate("/");
+    } catch (error) {
+      toast.error(error.message || "Something went wrong");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleGoogleRegistration = async () => {
+    try {
+      await signInWithGoogle();
       toast.success("Account created successfully");
       navigate("/login");
     } catch (error) {
@@ -61,10 +94,18 @@ function RegistrationForm() {
       <form onSubmit={handleSubmit} className="space-y-5 mt-10">
         <Input
           id="name"
-          label="You name"
+          label="Your name"
           type="text"
           disabled={isLoading}
           value={form.name}
+          onChange={handleChange}
+        />
+        <Input
+          id="imageUrl"
+          label="You image url"
+          type="text"
+          disabled={isLoading}
+          value={form.imageUrl}
           onChange={handleChange}
         />
         <Input
@@ -92,8 +133,6 @@ function RegistrationForm() {
           onChange={handleChange}
         />
 
-        {/* <ImageUpload id="imageUrl" onChange={handleChange} /> */}
-
         <Button
           type="submit"
           disabled={isLoading}
@@ -111,6 +150,7 @@ function RegistrationForm() {
           </div>
           <div className="flex items-center gap-x-4 mb-6">
             <Button
+              onClick={handleGoogleRegistration}
               type="button"
               disabled={isLoading}
               className="flex items-center gap-x-2 bg-[#4285f4] hover:bg-[#4285f4]/90"

@@ -5,7 +5,7 @@ export const Info = () => {
   const { data } = useData();
 
   return (
-    <div className="text-white bg-[url('./bg.jpg')] bg-cover bg-center">
+    <div className="text-white bg-[url('../bg.jpg')] bg-cover bg-center">
       <div className="container mx-auto py-10">
         <h2 className="uppercase text-3xl font-bold text-center mb-6">
           Our Past Experiences

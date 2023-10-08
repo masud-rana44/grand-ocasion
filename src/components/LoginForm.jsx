@@ -9,7 +9,8 @@ import { Separator } from "./Separator";
 import { useAuth } from "../contexts/AuthContext";
 
 function LoginForm() {
-  const { loginWithEmail, isLoading, setIsLoading } = useAuth();
+  const { loginWithEmail, isLoading, setIsLoading, signInWithGoogle } =
+    useAuth();
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -31,6 +32,17 @@ function LoginForm() {
     try {
       await loginWithEmail(email, password);
 
+      toast.success("Login successfully");
+    } catch (error) {
+      toast.error(error.message || "Something went wrong");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleGoogleRegistration = async () => {
+    try {
+      await signInWithGoogle();
       toast.success("Login successfully");
     } catch (error) {
       toast.error(error.message || "Something went wrong");
@@ -80,6 +92,7 @@ function LoginForm() {
           </div>
           <div className="flex items-center gap-x-4">
             <Button
+              onClick={handleGoogleRegistration}
               type="button"
               disabled={isLoading}
               className="flex items-center gap-x-2 bg-[#4285f4] hover:bg-[#4285f4]/90"
