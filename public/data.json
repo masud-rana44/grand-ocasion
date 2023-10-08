@@ -3,44 +3,73 @@
     {
       "id": "f7b99483-9b23-43a9-b5b2-198682ea95af",
       "name": "Conference Planning",
-      "image": "https://demo2.wpopal.com/spker/wp-content/uploads/2019/07/rev_sliderhome2_1.jpg",
+      "image": "https://i.ibb.co/5s2gcby/photo-1587825140708-dfaf72ae4b04.jpg",
       "price": "$2000 - $5000",
       "description": "Our conference planning service is tailored to meet the needs of businesses looking to host successful conferences and seminars. We handle everything from venue selection and logistics to guest speakers and event promotion. With our expertise, your conference will be a memorable and productive experience for all attendees."
     },
     {
       "id": "87cb46f9-3a67-45d4-8e1a-9231b5f0d51d",
       "name": "Trade Show Management",
-      "image": "https://demo2.wpopal.com/spker/wp-content/uploads/2019/07/rev_sliderhome2_1.jpg",
+      "image": "https://i.ibb.co/DLzKYBh/tradeshowfloor.webp",
       "price": "$2500 - $6000",
       "description": "Trade shows and expos are excellent opportunities to showcase your products and services. Our trade show management service ensures that your company stands out at industry events. We handle booth design, marketing collateral, and visitor engagement, ensuring a successful trade show presence."
     },
     {
       "id": "b3df5931-7a15-45b9-9e04-dbaa206ae749",
       "name": "Team Building Workshops",
-      "image": "https://demo2.wpopal.com/spker/wp-content/uploads/2019/07/rev_sliderhome2_1.jpg",
+      "image": "https://i.ibb.co/kKmJsdx/kenny-eliason-1-a-A2-Fadydc-unsplash.jpg",
       "price": "$1500 - $3500",
       "description": "Team building is essential for fostering a positive work environment. Our team building workshops are designed to improve teamwork, communication, and collaboration among your employees. We offer a variety of engaging activities and workshops tailored to your organization's needs."
     },
     {
       "id": "f8ca273e-747b-4f33-84ad-39b8ab2c54e0",
       "name": "Product Launch Coordination",
-      "image": "https://demo2.wpopal.com/spker/wp-content/uploads/2019/07/rev_sliderhome2_1.jpg",
+      "image": "https://i.ibb.co/RpvQtX9/product-school-cd7i9v-YIye-Y-unsplash.jpg",
       "price": "$3000 - $8000",
       "description": "Launching a new product is a significant event for any business. Our product launch coordination service ensures a successful introduction to the market. We handle product unveiling events, marketing campaigns, and media relations to generate buzz and excitement around your new product."
     },
     {
       "id": "your-unique-id-here",
       "name": "Corporate Meetings Management",
-      "image": "https://demo2.wpopal.com/spker/wp-content/uploads/2019/07/rev_sliderhome2_1.jpg",
+      "image": "https://i.ibb.co/mFtLzp2/christina-wocintechchat-com-Q80-LYxv-Tbs-unsplash.jpg",
       "price": "$1000 - $4000",
       "description": "Efficient corporate meetings are essential for decision-making and collaboration. Our corporate meetings management service takes care of meeting logistics, scheduling, and coordination. We ensure that your meetings run smoothly, allowing your team to focus on important discussions."
     },
     {
       "id": "your-unique-id-here",
       "name": "Award Ceremonies Organization",
-      "image": "https://demo2.wpopal.com/spker/wp-content/uploads/2019/07/rev_sliderhome2_1.jpg",
+      "image": "https://i.ibb.co/p28rK85/VR-Awards-2018-award-ceremony-production.jpg",
       "price": "$1500 - $3500",
       "description": "Recognize and honor achievements within your organization with our award ceremonies organization service. We handle everything from venue selection and award design to program coordination. Our goal is to make your award ceremony a memorable and prestigious event."
+    }
+  ],
+  "statistics": [
+    {
+      "id": "1",
+      "label": "Successful Events",
+      "number": 500
+    },
+    {
+      "id": "2",
+      "label": "Client Satisfaction Rate",
+      "number": 95,
+      "isPercentage": true
+    },
+    {
+      "id": "3",
+      "label": "Years of Experience",
+      "number": 10
+    },
+    {
+      "id": "5",
+      "label": "Average Attendance",
+      "number": 500
+    },
+    {
+      "id": "6",
+      "label": "Repeat Clients",
+      "number": 85,
+      "isPercentage": true
     }
   ]
 }

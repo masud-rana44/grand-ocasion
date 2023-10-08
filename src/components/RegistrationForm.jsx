@@ -1,6 +1,4 @@
-// Email regex: /\S+@\S+\.\S+/
-
-import { AiOutlineGoogle, AiOutlineGithub } from "react-icons/ai";
+import { AiOutlineGoogle } from "react-icons/ai";
 
 import { useState } from "react";
 import { Input } from "./Input";
@@ -8,13 +6,15 @@ import { Button } from "./Button";
 import { Separator } from "./Separator";
 // import { ImageUpload } from "./ImageUpload";
 import { useAuth } from "../contexts/AuthContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 const emailVerification = /\S+@\S+\.\S+/;
 
 function RegistrationForm() {
-  const { registerWithEmail, isLoading } = useAuth();
+  const navigate = useNavigate();
+  const { registerWithEmail, profileUpdate, isLoading, setIsLoading } =
+    useAuth();
 
   const [form, setForm] = useState({
     name: "",
@@ -31,7 +31,7 @@ function RegistrationForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const { name, email, password, confirmPassword } = form;
+    const { name, email, password, confirmPassword, imageUrl } = form;
 
     if (!name || !email || !password || !confirmPassword) {
       return toast.error("Missing required fields.");
@@ -43,15 +43,19 @@ function RegistrationForm() {
 
     try {
       await registerWithEmail(email, password);
+      await profileUpdate(name, imageUrl);
       toast.success("Account created successfully");
+      navigate("/login");
     } catch (error) {
       toast.error(error.message || "Something went wrong");
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
-      <h2 className="text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+      <h2 className="text-center text-2xl font-bold leading-9 tracking-tight ">
         Create your account
       </h2>
       <form onSubmit={handleSubmit} className="space-y-5 mt-10">
@@ -90,7 +94,11 @@ function RegistrationForm() {
 
         {/* <ImageUpload id="imageUrl" onChange={handleChange} /> */}
 
-        <Button type="submit" disabled={isLoading}>
+        <Button
+          type="submit"
+          disabled={isLoading}
+          className="bg-gradient-to-r from-[#66b8dd] via-[#8e7fe9] to-[#e17497]"
+        >
           Register
         </Button>
         <div className="mt-6">
@@ -108,14 +116,6 @@ function RegistrationForm() {
               className="flex items-center gap-x-2 bg-[#4285f4] hover:bg-[#4285f4]/90"
             >
               <AiOutlineGoogle /> Google
-            </Button>
-            <Button
-              type="button"
-              disabled={isLoading}
-              className="flex items-center gap-x-2 bg-black hover:bg-black/90"
-            >
-              <AiOutlineGithub />
-              Github
             </Button>
           </div>
 

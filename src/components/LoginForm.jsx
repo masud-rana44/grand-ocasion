@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useState } from "react";
-import { AiOutlineGoogle, AiOutlineGithub } from "react-icons/ai";
+import { AiOutlineGoogle } from "react-icons/ai";
 
 import { Input } from "./Input";
 import { Button } from "./Button";
@@ -9,7 +9,7 @@ import { Separator } from "./Separator";
 import { useAuth } from "../contexts/AuthContext";
 
 function LoginForm() {
-  const { loginWithEmail, isLoading } = useAuth();
+  const { loginWithEmail, isLoading, setIsLoading } = useAuth();
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -34,12 +34,14 @@ function LoginForm() {
       toast.success("Login successfully");
     } catch (error) {
       toast.error(error.message || "Something went wrong");
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
-    <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
-      <h2 className="text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+    <div className="flex min-h-full w-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+      <h2 className="text-center text-2xl font-bold leading-9 tracking-tight ">
         Login to your account
       </h2>
 
@@ -61,7 +63,11 @@ function LoginForm() {
           onChange={handleChange}
         />
 
-        <Button disabled={isLoading} type="submit">
+        <Button
+          disabled={isLoading}
+          type="submit"
+          className="bg-gradient-to-r from-[#66b8dd] via-[#8e7fe9] to-[#e17497]"
+        >
           Login
         </Button>
         <div>
@@ -79,14 +85,6 @@ function LoginForm() {
               className="flex items-center gap-x-2 bg-[#4285f4] hover:bg-[#4285f4]/90"
             >
               <AiOutlineGoogle /> Google
-            </Button>
-            <Button
-              type="button"
-              disabled={isLoading}
-              className="flex items-center gap-x-2 bg-black hover:bg-black/90"
-            >
-              <AiOutlineGithub />
-              Github
             </Button>
           </div>
 
