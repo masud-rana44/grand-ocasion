@@ -1,9 +1,4 @@
-export const Button = ({
-  variant = "primary",
-  className,
-  children,
-  ...rest
-}) => {
+export const Button = ({ className, children, ...rest }) => {
   return (
     <button
       {...rest}

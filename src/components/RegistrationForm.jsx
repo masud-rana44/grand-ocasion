@@ -9,6 +9,9 @@ import { Separator } from "./Separator";
 // import { ImageUpload } from "./ImageUpload";
 import { useAuth } from "../contexts/AuthContext";
 import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
+
+const emailVerification = /\S+@\S+\.\S+/;
 
 function RegistrationForm() {
   const { registerWithEmail, isLoading } = useAuth();
@@ -28,72 +31,103 @@ function RegistrationForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const { name, email, imageUrl, password, confirmPassword } = form;
+    const { name, email, password, confirmPassword } = form;
 
-    if (!name || !email || !password || !confirmPassword) return;
-    await registerWithEmail(email, password);
+    if (!name || !email || !password || !confirmPassword) {
+      return toast.error("Missing required fields.");
+    }
+
+    if (!emailVerification.test(email)) {
+      return toast.error("Please enter a valid email");
+    }
+
+    try {
+      await registerWithEmail(email, password);
+      toast.success("Account created successfully");
+    } catch (error) {
+      toast.error(error.message || "Something went wrong");
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <Input
-        id="name"
-        label="You name"
-        type="text"
-        value={form.name}
-        onChange={handleChange}
-      />
-      <Input
-        id="email"
-        label="Email address"
-        type="email"
-        value={form.email}
-        onChange={handleChange}
-      />
-      <Input
-        id="password"
-        label="Password"
-        type="password"
-        value={form.password}
-        onChange={handleChange}
-      />
-      <Input
-        id="confirmPassword"
-        label="Confirm password"
-        type="password"
-        value={form.confirmPassword}
-        onChange={handleChange}
-      />
+    <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+      <h2 className="text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+        Create your account
+      </h2>
+      <form onSubmit={handleSubmit} className="space-y-5 mt-10">
+        <Input
+          id="name"
+          label="You name"
+          type="text"
+          disabled={isLoading}
+          value={form.name}
+          onChange={handleChange}
+        />
+        <Input
+          id="email"
+          label="Email address"
+          type="email"
+          disabled={isLoading}
+          value={form.email}
+          onChange={handleChange}
+        />
+        <Input
+          id="password"
+          label="Password"
+          type="password"
+          disabled={isLoading}
+          value={form.password}
+          onChange={handleChange}
+        />
+        <Input
+          id="confirmPassword"
+          label="Confirm password"
+          type="password"
+          disabled={isLoading}
+          value={form.confirmPassword}
+          onChange={handleChange}
+        />
 
-      {/* <ImageUpload id="imageUrl" onChange={handleChange} /> */}
+        {/* <ImageUpload id="imageUrl" onChange={handleChange} /> */}
 
-      <Button>Register</Button>
-      <div>
-        <div className="flex h-8 items-center space-x-6 mb-2">
-          <Separator />
-          <p className="flex-1 basis-full text-sm font-medium">
-            Or continue with
+        <Button type="submit" disabled={isLoading}>
+          Register
+        </Button>
+        <div className="mt-6">
+          <div className="flex h-8 items-center space-x-6 mb-3">
+            <Separator />
+            <p className="flex-1 basis-[150%] text-sm font-medium">
+              Or continue with
+            </p>
+            <Separator />
+          </div>
+          <div className="flex items-center gap-x-4 mb-6">
+            <Button
+              type="button"
+              disabled={isLoading}
+              className="flex items-center gap-x-2 bg-[#4285f4] hover:bg-[#4285f4]/90"
+            >
+              <AiOutlineGoogle /> Google
+            </Button>
+            <Button
+              type="button"
+              disabled={isLoading}
+              className="flex items-center gap-x-2 bg-black hover:bg-black/90"
+            >
+              <AiOutlineGithub />
+              Github
+            </Button>
+          </div>
+
+          <p className="text-sm text-center font-medium">
+            Already have an account?{" "}
+            <Link to="/login" className="text-indigo-700 hover:underline">
+              Login
+            </Link>
           </p>
-          <Separator />
         </div>
-        <div className="flex items-center gap-x-4 mb-3">
-          <Button className="flex items-center gap-x-2 bg-[#4285f4] hover:bg-[#4285f4]/90">
-            <AiOutlineGoogle /> Google
-          </Button>
-          <Button className="flex items-center gap-x-2 bg-black hover:bg-black/90">
-            <AiOutlineGithub />
-            Github
-          </Button>
-        </div>
-
-        <p className="text-sm text-center font-medium">
-          Already have an account?{" "}
-          <Link to="/login" className="text-indigo-700 hover:underline">
-            Login
-          </Link>
-        </p>
-      </div>
-    </form>
+      </form>
+    </div>
   );
 }
 

@@ -5,7 +5,9 @@ export const AppLayout = () => {
   return (
     <div>
       <Navbar />
-      <Outlet />
+      <div className="overflow-auto">
+        <Outlet />
+      </div>
     </div>
   );
 };

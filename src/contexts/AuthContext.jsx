@@ -5,13 +5,8 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { createContext, useContext, useEffect, useState } from "react";
-import PropTypes from "prop-types";
 
 import app from "../services/firebase.config.js";
-
-AuthProvider.propTypes = {
-  children: PropTypes.element,
-};
 
 const AuthContext = createContext();
 const auth = getAuth(app);
@@ -19,7 +14,6 @@ const auth = getAuth(app);
 function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState("");
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -33,19 +27,7 @@ function AuthProvider({ children }) {
 
   const registerWithEmail = (email, password) => {
     setIsLoading(true);
-
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        setUser(user);
-      })
-      .catch((error) => {
-        const errorMessage = error.message;
-        setError(errorMessage);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
+    return createUserWithEmailAndPassword(auth, email, password);
   };
 
   const loginWithEmail = (email, password) => {
@@ -55,7 +37,7 @@ function AuthProvider({ children }) {
 
   return (
     <AuthContext.Provider
-      value={{ user, isLoading, error, registerWithEmail, loginWithEmail }}
+      value={{ user, isLoading, registerWithEmail, loginWithEmail }}
     >
       {children}
     </AuthContext.Provider>

@@ -8,8 +8,6 @@ import { Button } from "./Button";
 import { Separator } from "./Separator";
 import { useAuth } from "../contexts/AuthContext";
 
-const emailVerification = /\S+@\S+\.\S+/;
-
 function LoginForm() {
   const { loginWithEmail, isLoading } = useAuth();
   const [form, setForm] = useState({
@@ -26,8 +24,8 @@ function LoginForm() {
 
     const { email, password } = form;
 
-    if (!email || !password || !emailVerification.test(email)) {
-      toast.error("Please provide valid information");
+    if (!email || !password) {
+      return toast.error("Missing required fields");
     }
 
     try {
