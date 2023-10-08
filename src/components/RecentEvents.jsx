@@ -1,6 +1,6 @@
 export const RecentEvents = () => {
   return (
-    <div className="mt-28">
+    <div className="my-28">
       <h2 className="uppercase font-bold text-3xl text-center">
         OUR PAST WORK
       </h2>
