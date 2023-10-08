@@ -4,7 +4,7 @@ const About = () => {
   return (
     <div>
       <AboutHeader />
-      <div className="container mx-auto flex flex-col lg:flex-row gap-10 mt-6">
+      <div className="container px-4 mx-auto flex flex-col lg:flex-row gap-10 mt-14">
         <div className="flex-1">
           <img src="./team.jpg" className="w-full" />
         </div>
@@ -12,7 +12,7 @@ const About = () => {
           <h2 className="text-3xl font-bold mb-10">
             The Grand Occasions Story
           </h2>
-          <p className="text-gray-600">
+          <p className="text-gray-600 mb-20">
             In 2007, a group of five industry professionals came together to
             solve an age-old problem in the events industry – how to provide
             great services at affordable prices to hotel events. The solution

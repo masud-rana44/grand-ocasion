@@ -4,7 +4,10 @@ export const ServiceCard = ({ id, name, image, price, description }) => {
   const navigate = useNavigate();
 
   return (
-    <div className="group rounded-md overflow-hidden shadow-md hover:shadow-lg border flex flex-col">
+    <div
+      data-aos="fade-up"
+      className="group rounded-md overflow-hidden shadow-md hover:shadow-lg border flex flex-col"
+    >
       <img
         className="w-full h-[260px] object-cover"
         src={image}

@@ -8,6 +8,7 @@ import ServiceDetails from "../pages/ServiceDetails";
 import { PrivateRoutes } from "../components/PrivateRoutes";
 import ErrorPage from "../pages/ErrorPage";
 import Contact from "../pages/Contact";
+import { PublicRoutes } from "../components/PublicRoutes";
 
 const router = createBrowserRouter([
   {
@@ -36,11 +37,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/login",
-        element: <Login />,
+        element: (
+          <PublicRoutes>
+            <Login />
+          </PublicRoutes>
+        ),
       },
       {
         path: "/register",
-        element: <Register />,
+        element: (
+          <PublicRoutes>
+            <Register />
+          </PublicRoutes>
+        ),
       },
       {
         path: "/services/:id",

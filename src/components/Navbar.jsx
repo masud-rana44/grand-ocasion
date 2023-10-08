@@ -52,7 +52,7 @@ export const Navbar = () => {
       </div>
 
       {isOpen && (
-        <ul className="md:hidden flex flex-col absolute -bottom-[176px] left-0 items-center bg-[#101010] space-y-5 py-8 w-full font-medium text-sky-100 z-50">
+        <ul className="md:hidden flex flex-col absolute -bottom-[176px] left-0 items-center bg-[#101010] space-y-5 pt-8 pb-14 w-full font-medium text-sky-100 z-50">
           {links}
         </ul>
       )}

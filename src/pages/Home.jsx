@@ -6,6 +6,7 @@ import { Services } from "../components/Services";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { WhoWeAre } from "../components/WhoWeAre";
 
 const Home = () => {
   useEffect(() => {
@@ -21,6 +22,7 @@ const Home = () => {
     <main>
       <Header />
       <Info />
+      <WhoWeAre />
       <Services />
       <PastWorks />
     </main>
