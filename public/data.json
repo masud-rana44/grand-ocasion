@@ -71,5 +71,27 @@
       "number": 85,
       "isPercentage": true
     }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "label": "Annual Conference Event",
+      "imageUrl": "https://i.ibb.co/mzgrMbw/event-2.jpg"
+    },
+    {
+      "id": 1,
+      "label": "Global Conference Event",
+      "imageUrl": "https://i.ibb.co/DgVyKph/event-3.jpg"
+    },
+    {
+      "id": 1,
+      "label": "Corporate Conferences",
+      "imageUrl": "https://i.ibb.co/D4pwM4C/event-4.jpg"
+    },
+    {
+      "id": 1,
+      "label": "Conference Events",
+      "imageUrl": "https://i.ibb.co/7vwQk5P/event-5.jpg"
+    }
   ]
 }

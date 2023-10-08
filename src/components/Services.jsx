@@ -5,7 +5,7 @@ export const Services = () => {
   const { data } = useData();
 
   return (
-    <div className="container mx-auto px-4  mt-28">
+    <div data-aos="fade-up" className="container mx-auto px-4  mt-28">
       <h2 className="text-center text-4xl font-bold uppercase">
         OUR SERVICES INCLUDE
       </h2>
