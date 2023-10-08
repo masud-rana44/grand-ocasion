@@ -1,31 +1,28 @@
+import { Link } from "react-router-dom";
+
 export const Footer = () => {
   return (
     <footer className="bg-[#101010] shadow  mt-20">
       <div className="w-full container mx-auto p-4 md:py-8">
         <div className="sm:flex sm:items-center sm:justify-between ">
-          <a href="./logo" className="flex items-center mb-4 sm:mb-0">
+          <a href="#" className="flex items-center mb-4 sm:mb-0">
             <img src="./logo.svg" className="h-8 mr-3" alt="Flowbite Logo" />
           </a>
           <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
             <li>
-              <a href="#" className="mr-4 hover:underline md:mr-6">
+              <Link to="/" className="mr-4 hover:underline md:mr-6">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link to="/about" className="mr-4 hover:underline md:mr-6">
                 About
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="mr-4 hover:underline md:mr-6">
-                Privacy Policy
-              </a>
-            </li>
-            <li>
-              <a href="#" className="mr-4 hover:underline md:mr-6">
-                Licensing
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:underline">
+              <Link to="/contact" className="hover:underline">
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

@@ -20,7 +20,7 @@ export const ServiceCard = ({ id, name, image, price, description }) => {
         <div className="flex items-center justify-between">
           <button
             onClick={() => navigate(`/services/${id}`)}
-            className="font-semibold border border-indigo-600 rounded-md px-4 py-2"
+            className="font-semibold border border-gray-600 rounded-md px-4 py-2"
           >
             View Details
           </button>

@@ -24,11 +24,11 @@ export const Navbar = () => {
       </li>
       <li>
         <NavLink to="/about" className="hover:text-[#d880b2] transition">
-          About
+          About Us
         </NavLink>
       </li>
       <li>
-        <NavLink to="/about" className="hover:text-[#d880b2] transition">
+        <NavLink to="/contact" className="hover:text-[#d880b2] transition">
           Contact
         </NavLink>
       </li>
@@ -36,7 +36,7 @@ export const Navbar = () => {
   );
 
   return (
-    <nav className="relative flex items-center justify-between p-6 bg-[#101010]">
+    <nav className="fixed top-0 left-0 w-full h-[88px] flex items-center justify-between p-6 bg-[#101010] z-50">
       <div className="hidden md:block">
         <Logo />
       </div>
