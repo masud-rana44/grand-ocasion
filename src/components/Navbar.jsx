@@ -68,7 +68,7 @@ export const Navbar = () => {
           <FiLogOut
             size={22}
             onClick={logOut}
-            className="text-white font-medium cursor-pointer"
+            className="text-white font-medium cursor-pointer hover:opacity-80"
           />
         </div>
       ) : (

@@ -7,14 +7,14 @@ Event Management with React, React-Router-Dom, Firebase, React-leaflet</h1>
 
 ## 📝 Features
 
-- Different types of events services
-- Credentials authentication with Firebase
-- Google authentication
-- Map using leaflet library
-- User friendly react toast message
-- Responsive mobile navbar
-- Beautiful animations effect using AOS
-- Full responsivity and mobile UI
+- <b>Different types of events services:</b> Choose from a variety of event services like conferences, trade shows, team building, and more.
+- <b>Credentials authentication with Firebase: </b> Securely log in and register using your email and password.
+- <b>Google authentication: </b> Log in with your Google account.
+- <b>Map using leaflet library: </b> Find location easily with an interactive map.
+- <b>User friendly react toast message: </b> Get friendly notifications for important actions.
+- <b>Responsive mobile navbar: </b> Access the website easily on your mobile device with a user-friendly navigation menu.
+- <b>Beautiful animations effect using AOS: </b> Visually appealing animations that enhance the website's beauty.
+- <b>Full responsivity and mobile UI: </b>The website is fully responsive, the ui is different on desktop and mobile devices.
 
 ## 🚀 Live Link
 

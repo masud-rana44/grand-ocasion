@@ -1,7 +1,9 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useRouteError } from "react-router-dom";
 
 const ErrorPage = () => {
   const navigate = useNavigate();
+  const error = useRouteError();
+  console.log(error);
 
   return (
     <div className=" flex items-center justify-center h-screen bg-gray-100">
@@ -9,8 +11,9 @@ const ErrorPage = () => {
         <h1 className="text-4xl font-bold text-red-500 mb-4">
           Oops! Something went wrong
         </h1>
-        <p className="text-lg text-gray-600 mb-8">
-          We apologize for the inconvenience. Please try again later.
+        <p className="text-lg  text-gray-600 mb-8">
+          {error?.error?.message ||
+            "We apologize for the inconvenience. Please try again later."}
         </p>
         <button
           onClick={() => navigate("/")}

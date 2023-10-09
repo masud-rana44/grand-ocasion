@@ -32,7 +32,7 @@ const ServiceDetails = () => {
           className="w-full h-[400px] xl:h-[600px] object-cover rounded-sm"
         />
         <div className="mt-8">
-          <p className="font-medium text-lg">{description}</p>
+          <p className="text-gray-600 ">{description}</p>
           <div className="mt-6 flex items-center justify-between">
             <div>
               <Button
