@@ -1,4 +1,5 @@
 import { AboutHeader } from "../components/AboutHeader";
+import { Footer } from "../components/Footer";
 
 const About = () => {
   return (
@@ -6,7 +7,7 @@ const About = () => {
       <AboutHeader />
       <div className="container px-4 mx-auto flex flex-col lg:flex-row gap-10 mt-14">
         <div className="flex-1">
-          <img src="./team.jpg" className="w-full" />
+          <img src="./team.jpg" className="w-full rounded-sm" />
         </div>
         <div className="flex-1">
           <h2 className="text-3xl font-bold mb-10">
@@ -31,6 +32,7 @@ const About = () => {
           </p>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };

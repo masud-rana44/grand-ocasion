@@ -5,13 +5,14 @@ import { Input } from "./Input";
 import { Button } from "./Button";
 import { Separator } from "./Separator";
 import { useAuth } from "../contexts/AuthContext";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 const emailVerification = /\S+@\S+\.\S+/;
 const passwordRegex = /^(?=.*[A-Z])(?=.*[\W_]).{6,}$/;
 
 function RegistrationForm() {
+  const location = useLocation();
   const navigate = useNavigate();
   const {
     registerWithEmail,
@@ -65,10 +66,11 @@ function RegistrationForm() {
     try {
       await registerWithEmail(email, password);
       await profileUpdate(name, imageUrl);
-      toast.success("Account created successfully");
-      navigate("/");
+
+      toast.success("Your account has been created successfully");
+      navigate(location?.state ? location.state : "/");
     } catch (error) {
-      toast.error(error.message || "Something went wrong");
+      toast.error(error?.message || "Something went wrong");
     } finally {
       setIsLoading(false);
     }
@@ -77,10 +79,11 @@ function RegistrationForm() {
   const handleGoogleRegistration = async () => {
     try {
       await signInWithGoogle();
-      toast.success("Account created successfully");
-      navigate("/login");
+
+      toast.success("Your account has been created successfully");
+      navigate(location?.state ? location.state : "/");
     } catch (error) {
-      toast.error(error.message || "Something went wrong");
+      toast.error(error?.message || "Something went wrong");
     } finally {
       setIsLoading(false);
     }

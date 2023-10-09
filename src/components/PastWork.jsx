@@ -5,7 +5,7 @@ export const PastWorks = () => {
   const { data } = useData();
 
   return (
-    <div className="my-28">
+    <div className="my-28 max-w-[1504px] mx-auto">
       <h2 className="uppercase font-bold text-3xl text-center">
         OUR PAST WORK
       </h2>

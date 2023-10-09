@@ -16,7 +16,9 @@ export const ServiceCard = ({ id, name, image, price, description }) => {
       />
       <div className="flex-1 px-3 py-4 flex flex-col justify-between">
         <div>
-          <h2 className="font-bold text-2xl mb-2  transition">{name}</h2>
+          <h2 className="font-bold text-[22px] text-gray-800 mb-2  transition">
+            {name}
+          </h2>
           <p className="text-gray-700 text-base mb-6 ">
             {description.slice(0, 150)}...
           </p>

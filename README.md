@@ -1,16 +1,19 @@
 <h1 align="center">
-Event Management with React, React-Router-Dom, Firebase</h1>
+Event Management with React, React-Router-Dom, Firebase, React-leaflet</h1>
 
 <p align="center"><img src="./public/screenshort.png" alt="Event Management homepage"></p>
 
-<p>This is a repository for a Event Management Platform with  React, React Router Dom, Tailwind, Firebase.</p>
+<p>This is a repository for a Event Management Platform with  React, React Router Dom, Tailwind, Firebase, React-leaflet.</p>
 
 ## 📝 Features
 
 - Different types of events services
+- Credentials authentication with Firebase
+- Google authentication
+- Map using leaflet library
+- User friendly react toast message
 - Responsive mobile navbar
 - Beautiful animations effect using AOS
-- Authentication with Firebase
 - Full responsivity and mobile UI
 
 ## 🚀 Live Link
@@ -21,8 +24,8 @@ Event Management with React, React-Router-Dom, Firebase</h1>
 
 You can access using the following demo account:
 
-- **Email**: tuser4818@gmail.com
-- **Password**: #temp1234
+- **Email**: test@test.com
+- **Password**: @Test1234
 
 ## 💻 Technology Used
 

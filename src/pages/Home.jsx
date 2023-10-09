@@ -8,6 +8,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { WhoWeAre } from "../components/WhoWeAre";
 import { MapHome } from "../components/MapHome";
+import { Footer } from "../components/Footer";
 
 const Home = () => {
   useEffect(() => {
@@ -27,6 +28,7 @@ const Home = () => {
       <Services />
       <PastWorks />
       <MapHome />
+      <Footer />
     </main>
   );
 };

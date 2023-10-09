@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useState } from "react";
 import { AiOutlineGoogle } from "react-icons/ai";
@@ -9,6 +9,8 @@ import { Separator } from "./Separator";
 import { useAuth } from "../contexts/AuthContext";
 
 function LoginForm() {
+  const location = useLocation();
+  const navigate = useNavigate();
   const { loginWithEmail, isLoading, setIsLoading, signInWithGoogle } =
     useAuth();
   const [form, setForm] = useState({
@@ -32,9 +34,10 @@ function LoginForm() {
     try {
       await loginWithEmail(email, password);
 
-      toast.success("Login successfully");
+      toast.success("You've successfully logged in");
+      navigate(location?.state ? location.state : "/");
     } catch (error) {
-      toast.error(error.message || "Something went wrong");
+      toast.error(error?.message || "Something went wrong");
     } finally {
       setIsLoading(false);
     }
@@ -43,9 +46,11 @@ function LoginForm() {
   const handleGoogleRegistration = async () => {
     try {
       await signInWithGoogle();
-      toast.success("Login successfully");
+
+      toast.success("You've successfully logged in");
+      navigate(location?.state ? location.state : "/");
     } catch (error) {
-      toast.error(error.message || "Something went wrong");
+      toast.error(error?.message || "Something went wrong");
     } finally {
       setIsLoading(false);
     }

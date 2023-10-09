@@ -1,8 +1,9 @@
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { ClipLoader } from "react-spinners";
 
 export const PrivateRoutes = ({ children }) => {
+  const location = useLocation();
   const { user, isLoading } = useAuth();
 
   if (isLoading) {
@@ -14,7 +15,7 @@ export const PrivateRoutes = ({ children }) => {
   }
 
   if (!user) {
-    return <Navigate to="/login" />;
+    return <Navigate state={location.pathname} to="/login" />;
   }
 
   return children;

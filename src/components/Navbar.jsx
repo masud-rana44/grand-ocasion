@@ -45,17 +45,19 @@ export const Navbar = () => {
         className="text-white cursor-pointer md:hidden"
       >
         {!isOpen ? (
-          <BiMenu size={26} className="text-white" />
+          <BiMenu size={28} className="text-white" />
         ) : (
-          <AiOutlineClose size={26} className="text-white" />
+          <AiOutlineClose size={28} className="text-white" />
         )}
       </div>
 
-      {isOpen && (
-        <ul className="md:hidden flex flex-col absolute -bottom-[176px] left-0 items-center bg-[#101010] space-y-5 pt-8 pb-14 w-full font-medium text-sky-100 z-50">
-          {links}
-        </ul>
-      )}
+      <ul
+        className={`md:hidden flex flex-col absolute  left-0 items-center bg-[#101010] space-y-5 pt-8 pb-14 w-full font-medium text-sky-100 z-10 transition duration-400 transform translate-y-36  ${
+          isOpen ? " opacity-100" : "opacity-0"
+        }`}
+      >
+        {links}
+      </ul>
 
       <ul className="list-none items-center space-x-12 text-sky-100  font-medium text-lg hidden md:flex">
         {links}
