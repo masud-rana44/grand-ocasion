@@ -1,6 +1,6 @@
 export const ContactHeader = () => {
   return (
-    <div className="text-white bg-[url('./bg.jpg')] bg-cover bg-center py-14 text-center">
+    <div className="text-white bg-[url('../bg.jpg')] bg-cover bg-center py-14 text-center">
       <div className="max-w-4xl px-2 md:px-0  mx-auto">
         <h1 className="text-4xl font-semibold mb-10">
           What can we do to help you?

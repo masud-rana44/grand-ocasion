@@ -6,7 +6,7 @@ export const Services = () => {
 
   return (
     <div data-aos="fade-up" className="container mx-auto px-4  mt-28">
-      <h2 className="text-center text-4xl font-bold uppercase">
+      <h2 className="text-center text-3xl font-bold uppercase">
         OUR SERVICES INCLUDE
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mt-10">

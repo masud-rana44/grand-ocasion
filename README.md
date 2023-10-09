@@ -15,7 +15,7 @@ Event Management with React, React-Router-Dom, Firebase</h1>
 
 ## 🚀 Live Link
 
-[#](#)
+[https://event-management-d3d55.web.app/](https://event-management-d3d55.web.app/)
 
 ## 🎮 Demo Account
 

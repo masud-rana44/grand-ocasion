@@ -10,7 +10,7 @@ export const WhoWeAre = () => {
         <h2 className="uppercase font-bold text-3xl text-center mb-6">
           WHO WE ARE
         </h2>
-        <p className="">
+        <p className="text-gray-700">
           With a perfect blend of experience and passion, GrandOccasions is an
           event management company. We’ve emerged as a company with ideas to
           turn your corporate or personal event into something worth

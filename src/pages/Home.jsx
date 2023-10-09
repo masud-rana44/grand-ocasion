@@ -7,6 +7,7 @@ import { Services } from "../components/Services";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { WhoWeAre } from "../components/WhoWeAre";
+import { MapHome } from "../components/MapHome";
 
 const Home = () => {
   useEffect(() => {
@@ -25,6 +26,7 @@ const Home = () => {
       <WhoWeAre />
       <Services />
       <PastWorks />
+      <MapHome />
     </main>
   );
 };

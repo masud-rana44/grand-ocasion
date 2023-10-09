@@ -1,6 +1,6 @@
 const ContactForm = () => {
   return (
-    <section className="bg-white">
+    <section className="bg-white mb-12">
       <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
         <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900">
           Got Questions? Ask Us.
@@ -55,7 +55,7 @@ const ContactForm = () => {
           </div>
           <button
             type="submit"
-            className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-indigo-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300"
+            className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-gradient-to-r from-[#66b8dd] via-[#8e7fe9] to-[#e17497] sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300"
           >
             Send message
           </button>
